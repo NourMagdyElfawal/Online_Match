@@ -1,6 +1,7 @@
 package com.NourElfawal.onlinematch;
 
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -64,7 +65,14 @@ public class WebsiteFragment extends Fragment {
 
     private void OpenWeb(String url, WebView webView) {
         WebSettings webSettings = webView.getSettings();
+        webSettings.setAllowFileAccess(false);
+        webSettings.setBuiltInZoomControls(false);
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+        if (Build.VERSION.SDK_INT < 18) {
+            webSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);
+        }
+        webSettings.setDatabaseEnabled(true);
         webView.loadUrl(url);
         webView.setWebViewClient(new WebViewClient());
 

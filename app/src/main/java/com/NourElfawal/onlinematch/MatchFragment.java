@@ -4,6 +4,7 @@ package com.NourElfawal.onlinematch;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,16 +37,10 @@ public class MatchFragment extends Fragment {
         RecyclerView recyclerView=(RecyclerView) view.findViewById(R.id.rvMatch);
         ListLinksAdapter listLinksAdapter=new ListLinksAdapter();
         recyclerView.setAdapter(listLinksAdapter);
+        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         return view;
-
-
-//        webView = v.findViewById(R.id.webView);
-//        WebSettings webSettings = webView.getSettings();
-//        webSettings.setJavaScriptEnabled(true);
-//        webView.loadUrl("https://www.yallakora.com/match-center");
-//        webView.setWebViewClient(new WebViewClient());
 
 
 
